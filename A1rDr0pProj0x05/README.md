@@ -1,1 +1,0 @@
-This is a document for A1rDr0p's software project 0x05;
