@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	
+	
+<!-- package里元素必须按照一定的顺序排列 -->
+<!-- result-types -->
+<!-- interceptors -->
+<!-- default-interceptor-ref -->
+<!-- default-action-ref -->
+<!-- default-class-ref -->
+<!-- global-results -->
+<!-- global-exception-mappings -->
+<!-- action*(就是所有的action放到最后) -->
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="qwq" extends="struts-default" namespace="/"
+		strict-method-invocation="false">
+		<!-- <global-results>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</global-results>
+		<global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
+
+
+<!-- 		<action name="login" class="com.test.action.LoginAction"
+			method="execute">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/welcome.jsp</result>
+		</action> -->
+		<action name="AddNewAuthor" class="qwq.AddNewAuthor">
+			<result name="success">/WEB-INF/content/addNewBook.jsp</result>
+			<result name="error">/WEB-INF/content/addNewBookFailure.jsp</result>
+		</action>		
+		<action name="AddNewWhat" class="qwq.AddNewWhat">
+			<result name="success">/WEB-INF/content/addNewBook.jsp</result>
+			<result name="error">/WEB-INF/content/addNewAuthor.jsp</result>
+		</action>
+		<action name="AddNewBook" class="qwq.AddNewBook">
+			<result name="success">/WEB-INF/content/addNewBookSuccess.jsp</result>
+			<result name="error">/WEB-INF/content/addNewBookFailure.jsp</result>
+		</action>
+		<action name="SearchBook" class="qwq.SearchBook">
+			<result name="success">/WEB-INF/content/searchResultSuccess.jsp</result>
+			<result name="error">/WEB-INF/content/searchResultFailure.jsp</result>
+		</action>
+		<action name="DeleteBook" class="qwq.DeleteBook">
+			<result name="success">/WEB-INF/content/searchResultSuccessDeleted.jsp</result>
+		</action>
+		<action name="BookDetail" class="qwq.BookDetail">
+			<result name="success">/WEB-INF/content/BookDetail.jsp</result>
+		</action>
+		<action name="EditBook" class="qwq.EditBook">
+			<result name="success">/WEB-INF/content/updateBook.jsp</result>
+		</action>	
+		<action name="UpdateBook" class="qwq.UpdateBook">
+			<result name="success">/WEB-INF/content/updateBookSuccess.jsp</result>
+			<!-- <result name="error">/WEB-INF/content/updateBookFailure.jsp</result> -->	
+		</action>	
+
+		<action name="ListAndUpdateBook" class="qwq.ListAndUpdateBook">
+			<result name="success">/WEB-INF/content/listAndUpdateBook.jsp</result>
+		</action>	
+		
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
